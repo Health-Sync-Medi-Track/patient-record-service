@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: patient-record-service
-          image: gcr.io/phrasal-petal-444312-m0/patient-record-service:prod
+          image: gcr.io/artful-journey-444603-e1/patient-record-service:prod
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
