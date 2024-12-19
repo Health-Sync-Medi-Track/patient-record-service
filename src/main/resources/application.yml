@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api/v1/patient-record-service
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://wijesingherajitha653:KszuofpBmprRwA0B@cluster0.ngtp7.mongodb.net/health-sync
+
+
+
+

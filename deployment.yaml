@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: patient-record-service
+spec:
+  selector:
+    app: patient-record-service
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-record-service
+  labels:
+    app: patient-record-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-record-service
+  template:
+    metadata:
+      labels:
+        app: patient-record-service
+    spec:
+      containers:
+        - name: patient-record-service
+          image: gcr.io/phrasal-petal-444312-m0/patient-record-service:prod
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              port: 8080
+              path: /api/patient-record-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /api/patient-record-service/actuator/health
+            initialDelaySeconds: 40
+            periodSeconds: 10
+
