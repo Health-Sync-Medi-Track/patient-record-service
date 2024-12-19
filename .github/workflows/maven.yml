@@ -32,6 +32,8 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+
+      - name: Build Application with Maven
         run: mvn clean install -DskipTests
 
       # Set up Google Cloud CLI and authenticate
