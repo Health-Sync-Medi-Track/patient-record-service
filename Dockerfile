@@ -1,5 +1,5 @@
 # Use a lightweight base image with OpenJDK 11
-FROM eclipse-temurin:11-jre-slim
+FROM openjdk:11-jdk-slim
 
 # Set an argument for the jar file location
 ARG JAR_FILE=target/*.jar
