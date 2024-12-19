@@ -36,13 +36,13 @@ spec:
           readinessProbe:
             httpGet:
               port: 8080
-              path: /api/patient-record-service/actuator/health
+              path: /api/v1/patient-record-service/actuator/health
             initialDelaySeconds: 40
             periodSeconds: 10
           livenessProbe:
             httpGet:
               port: 8080
-              path: /api/patient-record-service/actuator/health
+              path: /api/v1/patient-record-service/actuator/health
             initialDelaySeconds: 40
             periodSeconds: 10
 
